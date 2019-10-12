@@ -33,9 +33,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-     [self redirectConsoleLog];
+    [self redirectConsoleLog];
     
-        NSLog(@"iOS_didFinishLaunchingWithOptions");
+    NSLog(@"iOS_didFinishLaunchingWithOptions");
 
     return YES;
 }
@@ -55,6 +55,28 @@
  */
 - (void)applicationDidEnterBackground:(UIApplication *)application{
     NSLog(@"iOS_applicationDidEnterBackground");
+}
+
+/**
+ 在应用程序将要进入前台时(被激活)，要执行的委托调用，刚好与applicationWillResignActive 方法相对应
+ ???咋不是和applicationDidEnterBackground相对应？
+ */
+- (void)applicationWillEnterForeground:(UIApplication *)application{
+    
+}
+
+/**
+ 在应用程序已被激活后，要执行的委托调用，刚好与applicationDidEnterBackground 方法相对应
+ */
+- (void)applicationDidBecomeActive:(UIApplication *)application{
+    
+}
+
+/**
+ 在应用程序要完全推出的时候，要执行的委托调用，这个需要要设置UIApplicationExitsOnSuspend的键值
+ */
+- (void)applicationWillTerminate:(UIApplication *)application{
+    
 }
 
 - (UISceneConfiguration *)application:(UIApplication *)application configurationForConnectingSceneSession:(UISceneSession *)connectingSceneSession options:(UISceneConnectionOptions *)options {
