@@ -9,15 +9,25 @@
 #import "ViewController.h"
 
 @interface ViewController ()
-
+@property (weak, nonatomic) IBOutlet UILabel *tvName;
+@property (weak, nonatomic) IBOutlet UISwitch *mapSwitch;
+@property (weak, nonatomic) IBOutlet UIProgressView *loadProgress;
+@property (weak, nonatomic) IBOutlet UIProgressView *loadProgress2;
+@property UITextField *tfWithTag;
 @end
 
 @implementation ViewController
+
 
 //视图加载完成
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [_tvName setText:@"测试修改名称"];
+    [_loadProgress setProgress:0.1f];
+    
+    _tfWithTag = [self.view viewWithTag:100];
+    _tfWithTag.text = @"找到tag对应的view后修改其text";
 }
 
 //内存紧张时，由系统调用此方法
@@ -53,6 +63,10 @@
 
 //此控制器已经把它所包含的子视图排列完成
 - (void)viewDidLayoutSubviews{
+    
+}
+
+- (IBAction)func:(id)sender {
     
 }
 
