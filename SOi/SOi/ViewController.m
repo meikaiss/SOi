@@ -14,6 +14,11 @@
 @property (weak, nonatomic) IBOutlet UIProgressView *loadProgress;
 @property (weak, nonatomic) IBOutlet UIProgressView *loadProgress2;
 @property UITextField *tfWithTag;
+- (IBAction)btnLoginClick:(UIButton *)sender forEvent:(UIEvent *)event;
+
+@property UIButton *btnEventBind;
+@property (weak, nonatomic) IBOutlet UILabel *labelBindRes;
+
 @end
 
 @implementation ViewController
@@ -28,6 +33,10 @@
     
     _tfWithTag = [self.view viewWithTag:100];
     _tfWithTag.text = @"找到tag对应的view后修改其text";
+    
+    self.btnEventBind = [self.view viewWithTag:101];
+    [self.btnEventBind addTarget:self action:@selector(onBindClick:) forControlEvents:UIControlEventTouchUpInside];
+    
 }
 
 //内存紧张时，由系统调用此方法
@@ -68,6 +77,16 @@
 
 - (IBAction)func:(id)sender {
     
+}
+
+- (IBAction)btnLoginClick:(UIButton *)sender forEvent:(UIEvent *)event {
+    _tfWithTag.text = @"测试点击";
+}
+
+
+-(void) onBindClick:(UIButton*)sender{
+    //_labelBindRes.text = @"执行了代码1";
+    self.labelBindRes.text = @"执行了代码2";
 }
 
 @end
