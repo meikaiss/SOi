@@ -23,6 +23,9 @@
 
 @implementation ViewController
 
+/**
+ XIB = XCode Interface Builder
+ */
 
 //视图加载完成
 - (void)viewDidLoad {
